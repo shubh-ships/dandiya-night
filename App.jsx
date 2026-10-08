@@ -1,5 +1,10 @@
 import { useEffect, useState } from 'react'
 import ThankYou from './components/ThankYou.jsx'
+import logoImg from './images/logo.webp'
+import delhiGovtImg from './images/delhi-govt.webp'
+import delhiTourismImg from './images/delhi-tourism.webp'
+import rekhaGuptaImg from './images/rekha-gupta.webp'
+import kapilMishraImg from './images/kapil-mishra.webp'
 import { registerGuest } from './supabase.js'
 import { Bunting, DandiyaSticks, FreeEntryStamp, Mandala, Skyline } from './components/Decor.jsx'
 
@@ -21,8 +26,8 @@ const EVENT = {
 }
 
 const GUESTS = {
-  left: { photo: '/assets/rekha-gupta.webp', name: 'Smt. Rekha Gupta', title: "Hon'ble Chief Minister, Delhi" },
-  right: { photo: '/assets/kapil-mishra.webp', name: 'Shri Kapil Mishra', title: "Hon'ble Tourism Minister, Delhi" },
+  left: { photo: rekhaGuptaImg, name: 'Smt. Rekha Gupta', title: "Hon'ble Chief Minister, Delhi" },
+  right: { photo: kapilMishraImg, name: 'Shri Kapil Mishra', title: "Hon'ble Tourism Minister, Delhi" },
 }
 
 const ARTIST = {
@@ -76,17 +81,17 @@ function Header() {
       <Bunting />
       <div className="container org-strip">
         <span className="org">
-          <img src="/assets/delhi-govt.webp" alt="" width="66" height="86" />
+          <img src={delhiGovtImg} alt="" width="66" height="86" />
           <span className="org-govt">Government of the National Capital Territory of Delhi</span>
         </span>
         <span className="org org--right">
           <span>Delhi Tourism</span>
-          <img src="/assets/delhi-tourism.webp" alt="" width="80" height="74" />
+          <img src={delhiTourismImg} alt="" width="80" height="74" />
         </span>
       </div>
       <div className="container top-bar">
         <Guest {...GUESTS.left} align="left" />
-        <img className="top-logo" src="/assets/logo.webp" alt={`${EVENT.name} ${EVENT.year}`} width="88" height="88" />
+        <img className="top-logo" src={logoImg} alt={`${EVENT.name} ${EVENT.year}`} width="88" height="88" />
         <Guest {...GUESTS.right} align="right" />
       </div>
     </header>
@@ -181,7 +186,7 @@ function Hero({ onRegistered }) {
       <div className="container hero-grid">
         <div className="hero-art">
           <Mandala variant="filled" className="hero-mandala" />
-          <img className="hero-logo" src="/assets/logo.webp" alt="" width="800" height="800" />
+          <img className="hero-logo" src={logoImg} alt="" width="800" height="800" />
         </div>
 
         <div className="hero-copy">

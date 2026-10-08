@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { DandiyaSticks, FreeEntryStamp, Mandala } from './Decor.jsx'
+import logoImg from '../images/logo.webp'
 
 const CONFETTI_COLORS = ['#e0195a', '#f9c112', '#1e9e5a', '#f28c28', '#3f1a4a', '#18a5a4', '#ffffff']
 
@@ -115,7 +116,7 @@ export default function ThankYou({ registration, event, onBack }) {
           <DandiyaSticks className="thanks-sticks thanks-sticks--left" />
           <div className="thanks-logo">
             <Mandala variant="filled" className="thanks-logo-mandala" />
-            <img src="/assets/logo.webp" alt="" width="800" height="800" />
+            <img src={logoImg} alt="" width="800" height="800" />
           </div>
           <DandiyaSticks className="thanks-sticks thanks-sticks--right" />
         </div>
