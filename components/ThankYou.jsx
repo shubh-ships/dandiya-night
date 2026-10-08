@@ -115,7 +115,7 @@ export default function ThankYou({ registration, event, onBack }) {
           <DandiyaSticks className="thanks-sticks thanks-sticks--left" />
           <div className="thanks-logo">
             <Mandala variant="filled" className="thanks-logo-mandala" />
-            <img src="/assets/logo.png" alt="" width="800" height="800" />
+            <img src="/assets/logo.webp" alt="" width="800" height="800" />
           </div>
           <DandiyaSticks className="thanks-sticks thanks-sticks--right" />
         </div>

@@ -21,8 +21,8 @@ const EVENT = {
 }
 
 const GUESTS = {
-  left: { photo: '/assets/rekha-gupta.jpg', name: 'Smt. Rekha Gupta', title: "Hon'ble Chief Minister, Delhi" },
-  right: { photo: '/assets/kapil-mishra.jpeg', name: 'Shri Kapil Mishra', title: "Hon'ble Tourism Minister, Delhi" },
+  left: { photo: '/assets/rekha-gupta.webp', name: 'Smt. Rekha Gupta', title: "Hon'ble Chief Minister, Delhi" },
+  right: { photo: '/assets/kapil-mishra.webp', name: 'Shri Kapil Mishra', title: "Hon'ble Tourism Minister, Delhi" },
 }
 
 const ARTIST = {
@@ -76,17 +76,17 @@ function Header() {
       <Bunting />
       <div className="container org-strip">
         <span className="org">
-          <img src="/assets/delhi-govt.png" alt="" width="66" height="86" />
+          <img src="/assets/delhi-govt.webp" alt="" width="66" height="86" />
           <span className="org-govt">Government of the National Capital Territory of Delhi</span>
         </span>
         <span className="org org--right">
           <span>Delhi Tourism</span>
-          <img src="/assets/delhi-tourism.png" alt="" width="80" height="74" />
+          <img src="/assets/delhi-tourism.webp" alt="" width="80" height="74" />
         </span>
       </div>
       <div className="container top-bar">
         <Guest {...GUESTS.left} align="left" />
-        <img className="top-logo" src="/assets/logo.png" alt={`${EVENT.name} ${EVENT.year}`} width="88" height="88" />
+        <img className="top-logo" src="/assets/logo.webp" alt={`${EVENT.name} ${EVENT.year}`} width="88" height="88" />
         <Guest {...GUESTS.right} align="right" />
       </div>
     </header>
@@ -181,7 +181,7 @@ function Hero({ onRegistered }) {
       <div className="container hero-grid">
         <div className="hero-art">
           <Mandala variant="filled" className="hero-mandala" />
-          <img className="hero-logo" src="/assets/logo.png" alt="" width="800" height="800" />
+          <img className="hero-logo" src="/assets/logo.webp" alt="" width="800" height="800" />
         </div>
 
         <div className="hero-copy">
