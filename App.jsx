@@ -8,9 +8,12 @@ const EVENT = {
   name: 'Dandiya Reborn',
   year: '2026',
   start: '2026-10-11T18:00:00+05:30',
-  dateLabel: '11th October',
-  dateShort: '11 Oct 2026',
-  calendarDates: '20261011T123000Z/20261011T163000Z', // 6–10 PM IST in UTC, for Google Calendar
+  end: '2026-10-12T22:00:00+05:30',
+  dateLabel: '11th & 12th October',
+  dateShort: '11–12 Oct 2026',
+  // Night 1, 6–10 PM IST in UTC, repeated daily for 2 nights in Google Calendar
+  calendarDates: '20261011T123000Z/20261011T163000Z',
+  calendarRecur: 'RRULE:FREQ=DAILY;COUNT=2',
   timeLabel: '6 PM – 10 PM',
   venue: 'JLN Stadium',
   gate: 'Gate No. 14',
@@ -45,6 +48,7 @@ function useCountdown(target) {
   const diff = Math.max(0, new Date(target).getTime() - now)
   return {
     done: diff === 0,
+    ended: now > new Date(EVENT.end).getTime(),
     parts: [
       ['Days', Math.floor(diff / 86400000)],
       ['Hours', Math.floor(diff / 3600000) % 24],
@@ -168,7 +172,7 @@ function RegisterCard({ onRegistered }) {
 }
 
 function Hero({ onRegistered }) {
-  const { done, parts } = useCountdown(EVENT.start)
+  const { done, ended, parts } = useCountdown(EVENT.start)
   return (
     <section className="hero">
       <Mandala className="bg-mandala bg-mandala--left" />
@@ -192,7 +196,11 @@ function Hero({ onRegistered }) {
           </p>
           <div className="date-pill">
             <strong>
-              {EVENT.dateLabel} <span aria-hidden="true">|</span> {EVENT.timeLabel}
+              <span className="nowrap">{EVENT.dateLabel}</span>
+              <span className="date-sep" aria-hidden="true">
+                {' | '}
+              </span>
+              <span className="nowrap">{EVENT.timeLabel}</span>
             </strong>
             <span>
               📍 {EVENT.venue} · {EVENT.gate}
@@ -206,7 +214,9 @@ function Hero({ onRegistered }) {
 
         <div className="countdown" aria-live="off">
           {done ? (
-            <p className="countdown-live">The circle is live — see you on the floor!</p>
+            <p className="countdown-live">
+              {ended ? "That's a wrap — thank you for dancing with us!" : 'The circle is live — see you on the floor!'}
+            </p>
           ) : (
             parts.map(([label, value]) => (
               <div key={label} className="countdown-cell">
@@ -339,7 +349,8 @@ export default function App() {
         ) : (
           <>
             <Hero onRegistered={showThanks} />
-            <Lineup />
+            {/* Malhotra Sisters section hidden for now — uncomment to bring it back */}
+            {/* <Lineup /> */}
             <Venue />
           </>
         )}

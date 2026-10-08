@@ -101,6 +101,7 @@ export default function ThankYou({ registration, event, onBack }) {
     'https://calendar.google.com/calendar/render?action=TEMPLATE' +
     `&text=${encodeURIComponent(`${event.name} ${event.year}`)}` +
     `&dates=${event.calendarDates}` +
+    `&recur=${encodeURIComponent(event.calendarRecur)}` +
     `&location=${encodeURIComponent(`${event.venue}, ${event.gate}, New Delhi`)}` +
     `&details=${encodeURIComponent('Dandiya night with live music, dance and celebration. Entry is free.')}`
 

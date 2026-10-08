@@ -414,6 +414,18 @@ button:focus-visible {
   font-size: 0.88rem;
 }
 
+/* Phones: dates and time stack on two lines; wider screens join them with a separator */
+.date-pill strong .nowrap {
+  display: block;
+  white-space: nowrap;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.date-pill .date-sep {
+  display: none;
+}
+
 .hero-form {
   grid-area: form;
   text-align: left;
@@ -1003,6 +1015,15 @@ button:focus-visible {
    Tablet — 640px and up
    ========================================================= */
 @media (min-width: 640px) {
+  .date-pill strong .nowrap {
+    display: inline;
+  }
+
+  .date-pill .date-sep {
+    display: inline;
+    font-size: inherit;
+  }
+
 
   .thanks {
     padding: 48px 0 96px;
