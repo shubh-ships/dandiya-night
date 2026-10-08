@@ -989,20 +989,63 @@ button:focus-visible {
   margin: 0;
 }
 
+.socials-title {
+  margin: 10px 0 0 !important;
+  font-family: var(--font-caps);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
 .socials {
   display: grid;
-  gap: 2px;
+  justify-items: center;
+  gap: 10px;
   list-style: none;
-  margin: 6px 0;
+  margin: 6px 0 10px;
   padding: 0;
 }
 
+/* Light pills so each brand's own colours stay visible on the maroon footer */
 .socials a {
-  display: inline-block;
-  padding: 6px 4px;
-  color: var(--marigold);
-  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 8px 18px 8px 10px;
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font-weight: 600;
   font-size: 0.92rem;
+  text-decoration: none;
+  box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.socials a svg {
+  flex: none;
+}
+
+.socials a:active {
+  transform: scale(0.97);
+}
+
+@media (hover: hover) {
+  .socials a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px -8px rgba(0, 0, 0, 0.6);
+  }
+}
+
+@media (min-width: 640px) {
+  .socials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
 }
 
 .footer .fine {
@@ -1093,12 +1136,6 @@ button:focus-visible {
     width: auto;
   }
 
-  .socials {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 6px 22px;
-  }
 }
 
 /* =========================================================

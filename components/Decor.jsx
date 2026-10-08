@@ -206,3 +206,61 @@ export function DandiyaSticks({ className = '' }) {
     </svg>
   )
 }
+
+// Inline social icons in official brand colours: no extra requests, a few hundred bytes each.
+const SOCIAL_ICONS = {
+  instagram: (
+    <>
+      <defs>
+        <radialGradient id="ig-grad" cx="30%" cy="107%" r="150%">
+          <stop offset="0" stopColor="#fdf497" />
+          <stop offset="0.05" stopColor="#fdf497" />
+          <stop offset="0.45" stopColor="#fd5949" />
+          <stop offset="0.6" stopColor="#d6249f" />
+          <stop offset="0.9" stopColor="#285AEB" />
+        </radialGradient>
+      </defs>
+      <rect width="24" height="24" rx="6.5" fill="url(#ig-grad)" />
+      <rect x="5" y="5" width="14" height="14" rx="4" fill="none" stroke="#fff" strokeWidth="1.8" />
+      <circle cx="12" cy="12" r="3.3" fill="none" stroke="#fff" strokeWidth="1.8" />
+      <circle cx="16.2" cy="7.8" r="1" fill="#fff" />
+    </>
+  ),
+  facebook: (
+    <>
+      <circle cx="12" cy="12" r="12" fill="#1877F2" />
+      <path
+        d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+        fill="#fff"
+        transform="translate(3.2 4.3) scale(0.8)"
+      />
+    </>
+  ),
+  x: (
+    <>
+      <rect width="24" height="24" rx="6" fill="#000" />
+      <path
+        d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93zM17.61 20.64h2.04L6.49 3.24H4.3z"
+        fill="#fff"
+        transform="translate(5 5) scale(0.583)"
+      />
+    </>
+  ),
+  website: (
+    <>
+      <circle cx="12" cy="12" r="12" fill="#1e9e5a" />
+      <g fill="none" stroke="#fff" strokeWidth="1.6" transform="translate(4.8 4.8) scale(0.6)">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+      </g>
+    </>
+  ),
+}
+
+export function SocialIcon({ name }) {
+  return (
+    <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+      {SOCIAL_ICONS[name]}
+    </svg>
+  )
+}

@@ -6,7 +6,7 @@ import delhiTourismImg from './images/delhi-tourism.webp'
 import rekhaGuptaImg from './images/rekha-gupta.webp'
 import kapilMishraImg from './images/kapil-mishra.webp'
 import { registerGuest } from './supabase.js'
-import { Bunting, DandiyaSticks, FreeEntryStamp, Mandala, Skyline } from './components/Decor.jsx'
+import { Bunting, DandiyaSticks, FreeEntryStamp, Mandala, Skyline, SocialIcon } from './components/Decor.jsx'
 
 // ---- Event content: edit here ----
 const EVENT = {
@@ -37,10 +37,10 @@ const ARTIST = {
 }
 
 const SOCIALS = [
-  { label: 'delhitourism.gov.in', href: 'https://delhitourism.gov.in' },
-  { label: 'Instagram · delhitourism_official', href: 'https://instagram.com/delhitourism_official' },
-  { label: 'Facebook · delhitourism', href: 'https://facebook.com/delhitourism' },
-  { label: 'X · tourism_delhi', href: 'https://x.com/tourism_delhi' },
+  { icon: 'instagram', platform: 'Instagram', handle: '@delhitourism_official', href: 'https://www.instagram.com/delhitourism_official/' },
+  { icon: 'facebook', platform: 'Facebook', handle: 'delhitourism', href: 'https://www.facebook.com/delhitourism' },
+  { icon: 'x', platform: 'X (Twitter)', handle: '@tourism_delhi', href: 'https://x.com/tourism_delhi' },
+  { icon: 'website', platform: 'Website', handle: 'delhitourism.gov.in', href: 'https://delhitourism.gov.in' },
 ]
 // -----------------------------------
 
@@ -306,11 +306,13 @@ function Footer() {
         <p>
           {EVENT.dateLabel} · {EVENT.timeLabel} · {EVENT.venue}, {EVENT.gate}
         </p>
+        <p className="socials-title">Follow Delhi Tourism</p>
         <ul className="socials">
           {SOCIALS.map((s) => (
             <li key={s.href}>
-              <a href={s.href} target="_blank" rel="noreferrer">
-                {s.label}
+              <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={`${s.platform}: ${s.handle}`}>
+                <SocialIcon name={s.icon} />
+                <span>{s.handle}</span>
               </a>
             </li>
           ))}
